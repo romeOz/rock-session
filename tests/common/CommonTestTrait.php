@@ -1,6 +1,6 @@
 <?php
 
-namespace rockunit\common;
+namespace rockunit\session\common;
 
 
 use rock\helpers\FileHelper;

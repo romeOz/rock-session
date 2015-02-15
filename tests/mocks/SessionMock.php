@@ -1,6 +1,6 @@
 <?php
 
-namespace rockunit\mocks;
+namespace rockunit\session\mocks;
 
 
 use rock\session\Session;
