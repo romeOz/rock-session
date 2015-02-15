@@ -23,6 +23,7 @@
         <blacklist>
             <file>./src/SessionException.php</file>
             <file>./src/SessionInterface.php</file>
+            <directory>./tests</directory>
         </blacklist>
     </filter>
     <logging>
