@@ -9,7 +9,7 @@ use rock\request\Request;
 /**
  * Session provides session data management and the related configurations.
  *
- * Session is a Web application component that can be accessed via {@see \rock\RockInterface::$session}.
+ * Session is a Web application component that can be accessed via {@see \rock\Rock::$session}.
  *
  * To start the session, call {@see \rock\session\DbSession::open()}; To complete and send out session data, call {@see \rock\session\Session::close()};
  * To destroy the session, call {@see \rock\session\DbSession::destroy()}.
