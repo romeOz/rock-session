@@ -1,10 +1,10 @@
 <?php
 
-namespace rockunit\session;
+namespace rockunit;
 
 
-use rockunit\session\common\CommonTestTrait;
-use rockunit\session\mocks\SessionMock;
+use rockunit\common\CommonTestTrait;
+use rockunit\mocks\SessionMock;
 
 /**
  * @group base
