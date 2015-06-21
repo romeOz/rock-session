@@ -84,7 +84,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Returns a value indicating whether to use custom session storage.
-     * 
+     *
      * This method should be overridden to return true by child classes that implement custom session storage.
      * To implement custom session storage, override these methods: {@see \rock\session\Session::openSession()}, {@see \rock\session\Session::closeSession()},
      * {@see \rock\session\Session::readSession()}, {@see \rock\session\Session::writeSession()}, {@see \rock\session\Session::destroySession()} and {@see \rock\session\Session::gcSession()}.
@@ -174,7 +174,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Returns a value indicating whether the current request has sent the session ID.
-     * 
+     *
      * The default implementation will check cookie and $_GET using the session name.
      * If you send session ID via other ways, you may need to override this method
      * or call {@see \rock\session\Session::setHasSessionId()} to explicitly set whether the session ID is sent.
@@ -205,7 +205,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Sets the value indicating whether the current request has sent the session ID.
-     * 
+     *
      * This method is provided so that you can override the default way of determining
      * whether the session ID is sent.
      * @param boolean $value whether the current request has sent the session ID.
@@ -233,7 +233,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Updates the current session ID with a newly generated one .
-     * 
+     *
      * Please refer to <http://php.net/session_regenerate_id> for more details.
      * @param boolean $deleteOldSession Whether to delete the old associated session file or not.
      */
@@ -292,7 +292,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Sets the session cookie parameters.
-     * 
+     *
      * The cookie parameters passed to this method will be merged with the result
      * of `session_get_cookie_params()`.
      * @param array $value cookie parameters, valid keys include: `lifetime`, `path`, `domain`, `secure` and `httponly`.
@@ -305,7 +305,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Sets the session cookie parameters.
-     * 
+     *
      * This method is called by {@see \rock\session\DbSession::open()} when it is about to open the session.
      *
      * @throws SessionException if the parameters are incomplete.
@@ -327,7 +327,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Returns the value indicating whether cookies should be used to store session IDs.
-     * 
+     *
      * @return boolean|null the value indicating whether cookies should be used to store session IDs.
      * @see setUseCookies()
      */
@@ -344,7 +344,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Sets the value indicating whether cookies should be used to store session IDs.
-     * 
+     *
      * Three states are possible:
      *
      * - {@see \rock\session\Session::USE_ONLY_COOKIES}: cookies and only cookies will be used to store session IDs.
@@ -425,7 +425,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session open handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @param string $savePath session save path
@@ -439,7 +439,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session close handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @return boolean whether session is closed successfully
@@ -451,7 +451,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session read handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @param string $id session ID
@@ -464,7 +464,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session write handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @param string $id session ID
@@ -478,7 +478,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session destroy handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @param string $id session ID
@@ -491,7 +491,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Session GC (garbage collection) handler.
-     * 
+     *
      * This method should be overridden if {@see \rock\session\Session::getUseCustomStorage()} returns true.
      * Do not call this method directly.
      * @param integer $maxLifetime the number of seconds after which data will be seen as 'garbage' and cleaned up.
@@ -514,14 +514,6 @@ class Session extends SessionFlash implements \ArrayAccess
     /**
      * @inheritdoc
      */
-    public function __get($keys)
-    {
-        return $this->get($keys);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function offsetGet($keys)
     {
         return $this->get($keys);
@@ -529,7 +521,7 @@ class Session extends SessionFlash implements \ArrayAccess
 
     /**
      * Returns an iterator for traversing the session variables.
-     * 
+     *
      * This method is required by the interface IteratorAggregate.
      *
      * @param array $only
@@ -559,11 +551,6 @@ class Session extends SessionFlash implements \ArrayAccess
         }
         $array = $_SESSION;
         $_SESSION = ArrayHelper::setValue($array, $keys, $value);
-    }
-
-    public function __set($keys, $value)
-    {
-        $this->add($keys, $value);
     }
 
     /**
