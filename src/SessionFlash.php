@@ -15,7 +15,6 @@ abstract class SessionFlash implements EventsInterface, SessionInterface
      * @var string the name of the session variable that stores the flash message data.
      */
     public $flashParam = '__flash';
-    public static $skipUpdateFlash = false;
 
     /**
      * Updates the counters for flash messages and removes outdated flash messages.
@@ -23,9 +22,6 @@ abstract class SessionFlash implements EventsInterface, SessionInterface
      */
     protected function updateFlashCounters()
     {
-        if (static::$skipUpdateFlash) {
-            return;
-        }
         $counters = $this->get($this->flashParam, []);
         if (is_array($counters)) {
             foreach ($counters as $key => $count) {
