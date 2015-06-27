@@ -15,29 +15,11 @@ abstract class SessionFlash implements EventsInterface, SessionInterface
      * @var string the name of the session variable that stores the flash message data.
      */
     public $flashParam = '__flash';
-
     /**
-     * Updates the counters for flash messages and removes outdated flash messages.
-     * This method should only be called once in {@see \rock\base\ObjectTrait::init()} .
+     * Auto-updates the counters for flash messages.
+     * @var bool
      */
-    protected function updateFlashCounters()
-    {
-        $counters = $this->get($this->flashParam, []);
-        if (is_array($counters)) {
-            foreach ($counters as $key => $count) {
-                if ($count > 0) {
-                    unset($counters[$key]);
-                    $this->remove($key);
-                } elseif ($count == 0) {
-                    $counters[$key]++;
-                }
-            }
-            $this->add($this->flashParam, $counters);
-        } else {
-            // fix the unexpected problem that flashParam doesn't return an array
-            $this->remove($this->flashParam);
-        }
-    }
+    public $updateFlashCounters = true;
 
     /**
      * @inheritdoc
@@ -137,5 +119,31 @@ abstract class SessionFlash implements EventsInterface, SessionInterface
             return $result !== null && ($counter === null || $counter == 0);
         }
         return $result !== null;
+    }
+
+    /**
+     * Updates the counters for flash messages and removes outdated flash messages.
+     * This method should only be called once in {@see \rock\base\ObjectTrait::init()} .
+     */
+    protected function updateFlashCounters()
+    {
+        if (!$this->updateFlashCounters) {
+            return;
+        }
+        $counters = $this->get($this->flashParam, []);
+        if (is_array($counters)) {
+            foreach ($counters as $key => $count) {
+                if ($count > 0) {
+                    unset($counters[$key]);
+                    $this->remove($key);
+                } elseif ($count == 0) {
+                    $counters[$key]++;
+                }
+            }
+            $this->add($this->flashParam, $counters);
+        } else {
+            // fix the unexpected problem that flashParam doesn't return an array
+            $this->remove($this->flashParam);
+        }
     }
 }
