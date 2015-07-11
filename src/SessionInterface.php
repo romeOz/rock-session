@@ -12,11 +12,11 @@ interface SessionInterface extends CollectionInterface
      *
      * A flash message is available only in the current request and the next request.
      *
-     * @param string  $key     the key identifying the flash message
-     * @param mixed   $default value to be returned if the flash message does not exist.
-     * @param boolean $delete  whether to delete this flash message right after this method is called.
+     * @param string $key the key identifying the flash message
+     * @param mixed $default value to be returned if the flash message does not exist.
+     * @param boolean $delete whether to delete this flash message right after this method is called.
      *                         If false, the flash message will be automatically deleted after the next request.
-     * @param int     $counter
+     * @param int $counter
      * @return mixed the flash message
      * @see setFlash()
      * @see hasFlash()
@@ -96,7 +96,7 @@ interface SessionInterface extends CollectionInterface
      * Returns a value indicating whether there is a flash message associated with the specified key.
      *
      * @param string $key key identifying the flash message
-     * @param bool   $isCounter
+     * @param bool $isCounter
      * @return boolean whether the specified flash message exists
      */
     public function hasFlash($key, $isCounter = false);

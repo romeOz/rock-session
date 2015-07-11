@@ -353,7 +353,7 @@ class Session extends SessionFlash implements \ArrayAccess
      *
      * @param int $value the value indicating whether cookies should be used to store session IDs.
      */
-    public function setUseCookies($value =  self::USE_ONLY_COOKIES)
+    public function setUseCookies($value = self::USE_ONLY_COOKIES)
     {
         if ($value === self::NOT_USE_COOKIES) {
             ini_set('session.use_cookies', '0');
@@ -372,7 +372,7 @@ class Session extends SessionFlash implements \ArrayAccess
      */
     public function getGCProbability()
     {
-        return (float) (ini_get('session.gc_probability') / ini_get('session.gc_divisor') * 100);
+        return (float)(ini_get('session.gc_probability') / ini_get('session.gc_divisor') * 100);
     }
 
     /**
@@ -412,7 +412,7 @@ class Session extends SessionFlash implements \ArrayAccess
      */
     public function getTimeout()
     {
-        return (int) ini_get('session.gc_maxlifetime');
+        return (int)ini_get('session.gc_maxlifetime');
     }
 
     /**

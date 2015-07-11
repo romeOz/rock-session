@@ -9,6 +9,7 @@ trait CommonSessionTrait
 {
     /** @var  SessionMock */
     public $handlerSession;
+
     /**
      * @dataProvider providerGet
      */
