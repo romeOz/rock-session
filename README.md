@@ -1,4 +1,4 @@
-Session module for [Rock Framework](https://github.com/romeOz/rock)
+Session library for PHP
 =================
 
 [![Build Status](https://travis-ci.org/romeOz/rock-session.svg?branch=master)](https://travis-ci.org/romeOz/rock-session)
