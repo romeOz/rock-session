@@ -23,9 +23,9 @@ echo $session->get('name'); // result: Tom
 
 Requirements
 -------------------
- * **PHP 5.4+**
+ * PHP 5.4+
 
 License
 -------------------
 
-Session module for [Rock Framework](https://github.com/romeOz/rock) is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Session library is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
