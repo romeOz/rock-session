@@ -20,7 +20,11 @@
         "romeoz/rock-events" : "*@dev"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.7.0"
+        "phpunit/phpunit": "~4.7.0",
+        "romeoz/rock-cache": "*@dev"
+    },
+    "suggest": {
+        "romeoz/rock-cache": "required by module Rock Cache"
     },
     "autoload": {
         "psr-4": {
