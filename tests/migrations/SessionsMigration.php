@@ -48,7 +48,9 @@ class SessionsMigration extends Migration
             true
         );
 
-        $this->addPrimaryKey("{$this->table}_id",$this->table, 'id');
+        if ($this->connection->driverName !== 'sqlite') {
+            $this->addPrimaryKey("{$this->table}_id",$this->table, 'id');
+        }
     }
 
     public function down()
