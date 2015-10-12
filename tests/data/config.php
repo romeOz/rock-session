@@ -17,12 +17,6 @@ return [
                 ['class' => SessionsMigration::className()],
             ]
         ],
-        'sqlite' => [
-            'dsn' => 'sqlite::memory:',
-            'migrations' => [
-                ['class' => SessionsMigration::className()],
-            ]
-        ],
         'pgsql' => [
             'dsn' => 'pgsql:host=localhost;dbname=rocktest;port=5432;',
             'username' => 'postgres',
