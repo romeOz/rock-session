@@ -26,6 +26,9 @@ services:
   - memcached
   - mongodb
 
+addons:
+  postgresql: "9.4"
+
 install:
   - composer self-update && composer --version
   - composer install --prefer-dist
@@ -34,15 +37,17 @@ install:
   - tests/data/travis/mongodb-setup.sh
 
 before_script:
+  - mysql -e 'CREATE DATABASE rocktest;';
+  - psql -U postgres -c 'CREATE DATABASE rocktest;';
   - mongo rocktest --eval 'db.addUser("travis", "test");'
 
 script:
   - mkdir -p build/logs
   - |
     if (php --version | grep -i HipHop > /dev/null); then
-      vendor/bin/phpunit --verbose --exclude-group php
+      vendor/bin/phpunit --verbose --exclude-group php,mssql,oci,cubrid
     else
-      vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml --exclude-group hhvm
+      vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml --exclude-group hhvm,mssql,oci,cubrid
     fi
 
 after_script:

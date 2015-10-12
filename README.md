@@ -6,6 +6,22 @@ Session library for PHP
 [![Coverage Status](https://coveralls.io/repos/romeOz/rock-session/badge.svg?branch=master)](https://coveralls.io/r/romeOz/rock-session?branch=master)
 [![License](https://poser.pugx.org/romeOz/rock-session/license.svg)](https://packagist.org/packages/romeOz/rock-session)
 
+Handlers
+-------------------
+
+ * File
+ * Memory
+    - Memcached
+    - Redis
+    - APC
+    - Couchbase
+ * MongoDB
+ * RDBMS
+    - MySQL
+    - PostgreSQL
+    - SQLite
+    - etc...
+
 Quick Start
 -------------------
 
@@ -56,8 +72,9 @@ echo $session->get('name'); // result: Tom
 Requirements
 -------------------
  * PHP 5.4+
- * [Rock Cache](https://github.com/romeOz/rock-cache) **(optional)**. Should be installed: `composer require romeoz/rock-cache:*`
- * [Rock MongoDB](https://github.com/romeOz/rock-mongodb) **(optional)**. Should be installed: `composer require romeoz/rock-mongodb:*`
+ * For `MemorySession` required [Rock Cache](https://github.com/romeOz/rock-cache) **(optional)**. Should be installed: `composer require romeoz/rock-cache`
+ * For `MongoSession` required [Rock MongoDB](https://github.com/romeOz/rock-mongodb) **(optional)**. Should be installed: `composer require romeoz/rock-mongodb`
+ * For `DbSession` required [Rock DB](https://github.com/romeOz/rock-db) **(optional)**. Should be installed: `composer require romeoz/rock-db`
 
 License
 -------------------

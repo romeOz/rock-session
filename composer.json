@@ -1,7 +1,7 @@
 {
     "name": "romeoz/rock-session",
     "description": "A simple Session library for PHP",
-    "keywords": ["session"],
+    "keywords": ["session", "memory", "redis", "memcached", "mongodb", "mysql", "postgres"],
     "type": "library",
     "license": "MIT",
     "support": {
@@ -22,11 +22,13 @@
     "require-dev": {
         "phpunit/phpunit": "^4.7.0",
         "romeoz/rock-cache": "*@dev",
-        "romeoz/rock-mongodb": "*@dev"
+        "romeoz/rock-mongodb": "*@dev",
+        "romeoz/rock-db": "*@dev"
     },
     "suggest": {
-        "romeoz/rock-cache": "required by module Rock Cache",
-        "romeoz/rock-mongodb": "required by module Rock MongoDB"
+        "romeoz/rock-cache": "required for MemorySession",
+        "romeoz/rock-mongodb": "required for MongoSession",
+        "romeoz/rock-db": "required for DbSession"
     },
     "autoload": {
         "psr-4": {
