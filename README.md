@@ -15,8 +15,40 @@ Quick Start
 $config = [
     'cache' => new \rock\cache\Memcached
 ];
-$session = new \rock\cache\MemorySession($config);
-$session ->add('name', 'Tom');
+$session = new \rock\session\MemorySession($config);
+$session->add('name', 'Tom');
+
+echo $session->get('name'); // result: Tom
+```
+
+####Session as MongoDB storage
+
+```php
+$config = [
+    'connection' => new \rock\mongodb\Connection
+];
+$session = new \rock\session\MongoSession($config);
+$session->add('name', 'Tom');
+
+echo $session->get('name'); // result: Tom
+```
+
+Default is used the garbage collector (GC). You can use [TTL indexes](http://docs.mongodb.org/manual/tutorial/expire-data/).
+
+```php
+$connection = new \rock\mongodb\Connection;
+
+// Create TTL index
+$connection
+    ->getCollection('session')
+    ->createIndex('expire', ['expireAfterSeconds' => 0]);
+
+$config = [
+    'connection' => $connection,
+    'useGC' => false
+];
+$session = new \rock\session\MongoSession($config);
+$session->add('name', 'Tom');
 
 echo $session->get('name'); // result: Tom
 ```
@@ -24,6 +56,8 @@ echo $session->get('name'); // result: Tom
 Requirements
 -------------------
  * PHP 5.4+
+ * [Rock Cache](https://github.com/romeOz/rock-cache) **(optional)**. Should be installed: `composer require romeoz/rock-cache:*`
+ * [Rock MongoDB](https://github.com/romeOz/rock-mongodb) **(optional)**. Should be installed: `composer require romeoz/rock-mongodb:*`
 
 License
 -------------------

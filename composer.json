@@ -1,6 +1,6 @@
 {
     "name": "romeoz/rock-session",
-    "description": "Session module for Rock Framework",
+    "description": "A simple Session library for PHP",
     "keywords": ["session"],
     "type": "library",
     "license": "MIT",
@@ -21,10 +21,12 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.7.0",
-        "romeoz/rock-cache": "*@dev"
+        "romeoz/rock-cache": "*@dev",
+        "romeoz/rock-mongodb": "*@dev"
     },
     "suggest": {
-        "romeoz/rock-cache": "required by module Rock Cache"
+        "romeoz/rock-cache": "required by module Rock Cache",
+        "romeoz/rock-mongodb": "required by module Rock MongoDB"
     },
     "autoload": {
         "psr-4": {
