@@ -11,15 +11,15 @@ Handlers
 
  * File
  * Memory
-    - Memcached
-    - Redis
-    - APC
-    - Couchbase
- * MongoDB
+    - [Memcached](http://memcached.org/)
+    - [Redis](http://redis.io)
+    - [APC](http://pecl.php.net/package/APCu)
+    - [Couchbase](http://www.couchbase.com)
+ * [MongoDB](https://www.mongodb.org/)
  * RDBMS
-    - MySQL
-    - PostgreSQL
-    - SQLite
+    - [MySQL](http://www.mysql.com/)
+    - [MariaDB](https://mariadb.com/)
+    - [PostgreSQL](http://www.postgresql.org/)    
     - etc...
 
 Quick Start
