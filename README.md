@@ -24,6 +24,25 @@ Handlers
     - [PostgreSQL](http://www.postgresql.org/)    
     - etc...
 
+Installation
+-------------------
+
+From the Command Line:
+
+```
+composer require romeoz/rock-session
+```
+
+or in your composer.json:
+
+```json
+{
+ "require": {
+     "romeoz/rock-session": "*"
+ }
+}
+``` 
+
 Quick Start
 -------------------
 
