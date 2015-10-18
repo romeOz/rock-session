@@ -1,6 +1,8 @@
 Session library for PHP
 =================
 
+[![Latest Stable Version](https://poser.pugx.org/romeOz/rock-session/v/stable.svg)](https://packagist.org/packages/romeOz/rock-session)
+[![Total Downloads](https://poser.pugx.org/romeOz/rock-session/downloads.svg)](https://packagist.org/packages/romeOz/rock-session)
 [![Build Status](https://travis-ci.org/romeOz/rock-session.svg?branch=master)](https://travis-ci.org/romeOz/rock-session)
 [![HHVM Status](http://hhvm.h4cc.de/badge/romeoz/rock-session.svg)](http://hhvm.h4cc.de/package/romeoz/rock-session)
 [![Coverage Status](https://coveralls.io/repos/romeOz/rock-session/badge.svg?branch=master)](https://coveralls.io/r/romeOz/rock-session?branch=master)
@@ -72,9 +74,9 @@ echo $session->get('name'); // result: Tom
 Requirements
 -------------------
  * PHP 5.4+
- * For `MemorySession` required [Rock Cache](https://github.com/romeOz/rock-cache) **(optional)**. Should be installed: `composer require romeoz/rock-cache`
- * For `MongoSession` required [Rock MongoDB](https://github.com/romeOz/rock-mongodb) **(optional)**. Should be installed: `composer require romeoz/rock-mongodb`
- * For `DbSession` required [Rock DB](https://github.com/romeOz/rock-db) **(optional)**. Should be installed: `composer require romeoz/rock-db`
+ * For `MemorySession` required [Rock Cache](https://github.com/romeOz/rock-cache): `composer require romeoz/rock-cache`
+ * For `MongoSession` required [Rock MongoDB](https://github.com/romeOz/rock-mongodb): `composer require romeoz/rock-mongodb`
+ * For `DbSession` required [Rock DB](https://github.com/romeOz/rock-db): `composer require romeoz/rock-db`
 
 License
 -------------------
