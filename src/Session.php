@@ -189,12 +189,11 @@ class Session extends SessionFlash implements \ArrayAccess
             } elseif (!ini_get('use_only_cookies') && ini_get('use_trans_sid')) {
                 if ($name !== null) {
                     if (class_exists('\rock\request\Request')) {
-                        $name = Request::get($name);
+                        $this->_hasSessionId = (bool)Request::get($name);
                     } else {
-                        $name = strip_tags($name);
+                        $this->_hasSessionId = isset($_GET[$name]) && strip_tags($_GET[$name]);
                     }
                 }
-                $this->_hasSessionId = $name !== null;
             } else {
                 $this->_hasSessionId = false;
             }
@@ -268,16 +267,16 @@ class Session extends SessionFlash implements \ArrayAccess
     }
 
     /**
-     * @param string $value the current session save path. This can be either a directory name or a path alias.
+     * @param string $path the current session save path. This can be either a directory name or a path alias.
      * @throws SessionException if the path is not a valid directory
      */
-    public function setSavePath($value)
+    public function setSavePath($path)
     {
-        $path = Alias::getAlias($value);
+        $path = Alias::getAlias($path);
         if (is_dir($path)) {
             session_save_path($path);
         } else {
-            throw new SessionException("Session save path is not a valid directory: $value");
+            throw new SessionException("Session save path is not a valid directory: $path.");
         }
     }
 
