@@ -117,10 +117,14 @@ class DbSession extends Session
         } else {
             // shouldn't reach here normally
             $this->connection->createCommand()
-                ->insert($this->sessionTable, [
-                                                'id' => $newID,
-                                                'expire' => time() + $this->getTimeout(),
-                                            ])->execute();
+                ->insert(
+                    $this->sessionTable,
+                    [
+                        'id' => $newID,
+                        'expire' => time() + $this->getTimeout(),
+                    ]
+                )
+                ->execute();
         }
     }
 

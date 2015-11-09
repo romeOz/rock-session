@@ -92,10 +92,12 @@ echo $session->get('name'); // result: Tom
 
 Requirements
 -------------------
- * PHP 5.4+
+ * **PHP 5.4+**
  * For `MemorySession` required [Rock Cache](https://github.com/romeOz/rock-cache): `composer require romeoz/rock-cache`
  * For `MongoSession` required [Rock MongoDB](https://github.com/romeOz/rock-mongodb): `composer require romeoz/rock-mongodb`
  * For `DbSession` required [Rock DB](https://github.com/romeOz/rock-db): `composer require romeoz/rock-db`
+
+>All unbolded dependencies is optional.
 
 License
 -------------------
